@@ -11,3 +11,9 @@ while True:
 # print products on screen
 for d in product:
 	print('Name: ', d[0], 'Price: ', d[1])
+
+# write file
+with open('product.csv', 'w', encoding='utf-8') as f:
+	f.write('Item 商品, Price 價格\n')
+	for d in product:
+		f.write(d[0] + ',' + d[1] + '\n')	
