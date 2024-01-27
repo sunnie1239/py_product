@@ -1,12 +1,19 @@
+import os
+
 product = []
 
-# read file
-with open('product.csv', 'r', encoding='utf-8') as f:
-	for line in f:
-		if 'Item 商品, Price 價格' in line:
-			continue # 執行下一次迴圈
-		[name, price] = line.strip().split(',')
-		product.append([name, price])
+# check file exist or not
+if os.path.isfile('product.csv'):
+	print("There is product.csv file.")
+	# read file
+	with open('product.csv', 'r', encoding='utf-8') as f:
+		for line in f:
+			if 'Item 商品, Price 價格' in line:
+				continue # 執行下一次迴圈
+			[name, price] = line.strip().split(',')
+			product.append([name, price])
+else:
+	print("There's no product.csv file.")			
 
 # enter new product
 while True:
